@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMC Krems Charity</title>
+
+    <!-- this allows all the bootsrap i used to work -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- this is custom css -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!--the message box -->
+    <div id="messagebox" class="alert d-none"></div>
+
+    <!-- and the navbar -->
+    <nav id="navigationbar" class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">IMC Krems Charity</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#step1">Donation Process</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#aboutus">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#donationshelp">How Donations Help</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!--my header -->
+    <header class="text-white py-5">
+        <div class="container text-center">
+            <h1 class="display-4 mb-3">IMC Krems Charity</h1>
+            <p class="lead mb-0">Choose donation packages, review your cart, enter your details, and confirm.</p>
+        </div>
+    </header>
+
+    <!-- the main container -->
+    <div class="container my-5">
+        <!-- and the progress bar -->
+        <div class="mb-4">
+            <div class="progress" style="height: 30px;">
+                <div id="progress-bar" class="progress-bar progress-bar-striped progress-bar-animated bg-primary"
+                     role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                    Step 1 of 4: Choose products
+                </div>
+            </div>
+        </div>
+        
+        <!-- step 1: you have to choose donation products and i put the 10% discount info -->
+        <section id="step1" class="mb-5">
+            <h2 class="mb-4">Step 1: Choose donation products</h2>
+            <p class="text-muted mb-3">
+                Add at least <strong>three</strong> items to receive a
+                <span class="badge bg-success">10% discount</span> on your total donation.
+            </p>
+            
+            <div class="mb-4">
+                <span class="badge bg-primary me-2">
+                    Items in cart: <span id="summaryitemcount">0</span>
+                </span>
+                <span class="badge bg-secondary me-2">
+                    Total: €<span id="summarytotal">0.00</span>
+                </span>
+                <span class="badge bg-success">
+                    Discount: €<span id="summarydiscount">0.00</span>
+                </span>
+            </div>
+
+            <!-- ========================== food packs ========================== -->
+            <!-- for now on, i use exactly the same for all the products i introduce, 
+             first a title and a short definition
+             then for every item i always use the same structure
+             1. button for a click on the page
+             2. class, here i use bootstrap classes
+             3. the onlyclick also refers to my "functions" for my java such as addtocart that its on my js script
+             and i do this in all the step 1-->
+            <div class="mb-5">
+                <h3 class="h5 mt-3 mb-2">Food packs</h3>
+                <p class="small text-muted">Basic food support for families, seniors and babies.</p>
+                <div class="row g-3">
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <div class="card h-100">
+                            <img src="img/FAMILYFOODBOX.jpg" class="card-img-top" alt="Family food box">
+                            <div class="card-body">
+                                <h5 class="card-title">Family Food Box</h5>
+                                <p class="card-text small">Basic food package for one family for one week.</p>
+                                <p class="fw-bold">€12.00</p>
+                                <button class="btn btn-primary btn-sm" onclick="addtocart('Family Food Box', 12)">Add to cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <div class="card h-100">
+                            <img src="img/SENIORCAREPACKAGE.jpg" class="card-img-top" alt="Senior care package">
+                            <div class="card-body">
+                                <h5 class="card-title">Senior Care Package</h5>
+                                <p class="card-text small">Groceries and basic food for one senior.</p>
+                                <p class="fw-bold">€13.00</p>
+                                <button class="btn btn-primary btn-sm" onclick="addtocart('Senior Care Package', 13)">Add to cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <div class="card h-100">
+                            <img src="img/BABYSUPPLIES.jpg" class="card-img-top" alt="Baby supplies">
+                            <div class="card-body">
+                                <h5 class="card-title">Baby Supplies</h5>
+                                <p class="card-text small">Basic diapers and baby food for one week.</p>
+                                <p class="fw-bold">€14.00</p>
+                                <button class="btn btn-primary btn-sm" onclick="addtocart('Baby Supplies', 14)">Add to cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <div class="card h-100">
+                            <img src="img/COOKINGSET.jpg" class="card-img-top" alt="Cooking set">
+                            <div class="card-body">
+                                <h5 class="card-title">Cooking Set</h5>
+                                <p class="card-text small">Small pot, pan and utensils for one family.</p>
+                                <p class="fw-bold">€9.00</p>
+                                <button class="btn btn-primary btn-sm" onclick="addtocart('Cooking Set', 9)">Add to cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ========================== hygiene & health ========================== -->
+            <div class="mb-5">
+                <h3 class="h5 mt-4 mb-2">Hygiene & health products</h3>
+                <p class="small text-muted">Help people stay clean and receive basic medical support.</p>
+                <div class="row g-3">
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <div class="card h-100">
+                            <img src="img/HYGIENEPACK.jpg" class="card-img-top" alt="Hygiene pack">
+                            <div class="card-body">
+                                <h5 class="card-title">Hygiene Pack</h5>
+                                <p class="card-text small">Soap, toothbrush, toothpaste and sanitary items.</p>
+                                <p class="fw-bold">€6.00</p>
+                                <button class="btn btn-primary btn-sm" onclick="addtocart('Hygiene Pack', 6)">Add to cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <div class="card h-100">
+                            <img src="img/BABYCAREKIT.jpg" class="card-img-top" alt="Baby care kit">
+                            <div class="card-body">
+                                <h5 class="card-title">Baby Care Kit</h5>
+                                <p class="card-text small">Baby lotion, wipes and extra diapers.</p>
+                                <p class="fw-bold">€16.00</p>
+                                <button class="btn btn-primary btn-sm" onclick="addtocart('Baby Care Kit', 16)">Add to cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <div class="card h-100">
+                            <img src="img/SMALLMEDICALKIT.jpg" class="card-img-top" alt="Small medical kit">
+                            <div class="card-body">
+                                <h5 class="card-title">Small Medical Kit</h5>
+                                <p class="card-text small">Bandages and basic medicine for emergencies.</p>
+                                <p class="fw-bold">€10.00</p>
+                                <button class="btn btn-primary btn-sm" onclick="addtocart('Small Medical Kit', 10)">Add to cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <div class="card h-100">
+                            <img src="img/HEALTHCHECKVOUCHER.png" class="card-img-top" alt="Health check voucher">
+                            <div class="card-body">
+                                <h5 class="card-title">Health Check Voucher</h5>
+                                <p class="card-text small">Basic medical examination at a partner clinic.</p>
+                                <p class="fw-bold">€19.00</p>
+                                <button class="btn btn-primary btn-sm" onclick="addtocart('Health Check Voucher', 19)">Add to cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ========================== home & shelter care ========================== -->
+            <div class="mb-5">
+                <h3 class="h5 mt-4 mb-2">Home & shelter care</h3>
+                <p class="small text-muted">Provide warmth, clothing and safe temporary shelter.</p>
+                <div class="row g-3">
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <div class="card h-100">
+                            <img src="img/WARMBLANKET.jpg" class="card-img-top" alt="Warm blanket">
+                            <div class="card-body">
+                                <h5 class="card-title">Warm Blanket</h5>
+                                <p class="card-text small">Keeps a person warm during cold nights.</p>
+                                <p class="fw-bold">€15.00</p>
+                                <button class="btn btn-primary btn-sm" onclick="addtocart('Warm Blanket', 15)">Add to cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <div class="card h-100">
+                            <img src="img/WINTERCLOTHESSET.jpg" class="card-img-top" alt="Winter clothes set">
+                            <div class="card-body">
+                                <h5 class="card-title">Winter Clothes Set</h5>
+                                <p class="card-text small">Jacket, hat and gloves for cold weather.</p>
+                                <p class="fw-bold">€25.00</p>
+                                <button class="btn btn-primary btn-sm" onclick="addtocart('Winter Clothes Set', 25)">Add to cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <div class="card h-100">
+                            <img src="img/EMERGENCYTENT.jpg" class="card-img-top" alt="Emergency tent">
+                            <div class="card-body">
+                                <h5 class="card-title">Emergency Tent</h5>
+                                <p class="card-text small">Small tent for families in crisis situations.</p>
+                                <p class="fw-bold">€40.00</p>
+                                <button class="btn btn-primary btn-sm" onclick="addtocart('Emergency Tent', 40)">Add to cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <div class="card h-100">
+                            <img src="img/ONENIGHTINSHELTER.jpg" class="card-img-top" alt="Night in shelter">
+                            <div class="card-body">
+                                <h5 class="card-title">One Night in Shelter</h5>
+                                <p class="card-text small">Safe bed and support in a local shelter.</p>
+                                <p class="fw-bold">€20.00</p>
+                                <button class="btn btn-primary btn-sm" onclick="addtocart('One Night in Shelter', 20)">Add to cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ========================== toys & leisure ========================== -->
+            <div class="mb-5">
+                <h3 class="h5 mt-4 mb-2">Toys & leisure</h3>
+                <p class="small text-muted">Support children and people in crisis with school and joy.</p>
+                <div class="row g-3">
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <div class="card h-100">
+                            <img src="img/SCHOOLKIT.jpg" class="card-img-top" alt="School kit">
+                            <div class="card-body">
+                                <h5 class="card-title">School Kit</h5>
+                                <p class="card-text small">Notebook and basic school materials.</p>
+                                <p class="fw-bold">€8.00</p>
+                                <button class="btn btn-primary btn-sm" onclick="addtocart('School Kit', 8)">Add to cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <div class="card h-100">
+                            <img src="img/COMFORTTOY.jpg" class="card-img-top" alt="Comfort toy">
+                            <div class="card-body">
+                                <h5 class="card-title">Comfort Toy</h5>
+                                <p class="card-text small">Small toy for children in need.</p>
+                                <p class="fw-bold">€7.00</p>
+                                <button class="btn btn-primary btn-sm" onclick="addtocart('Comfort Toy', 7)">Add to cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <div class="card h-100">
+                            <img src="img/HOTMEALVOUCHER.jpg" class="card-img-top" alt="Hot meal voucher">
+                            <div class="card-body">
+                                <h5 class="card-title">Hot Meal Voucher</h5>
+                                <p class="card-text small">Warm meal at a partner restaurant.</p>
+                                <p class="fw-bold">€5.00</p>
+                                <button class="btn btn-primary btn-sm" onclick="addtocart('Hot Meal Voucher', 5)">Add to cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <div class="card h-100">
+                            <img src="img/TRANSPORTATIONTICKET.png" class="card-img-top" alt="Transport ticket">
+                            <div class="card-body">
+                                <h5 class="card-title">Transportation Ticket</h5>
+                                <p class="card-text small">Bus or tram ticket to reach shelters.</p>
+                                <p class="fw-bold">€3.00</p>
+                                <button class="btn btn-primary btn-sm" onclick="addtocart('Transportation Ticket', 3)">Add to cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ========================== electronics & access ========================== -->
+            <div class="mb-5">
+                <h3 class="h5 mt-4 mb-2">Electronics & access</h3>
+                <p class="small text-muted">Light, water and digital access for people in need.</p>
+                <div class="row g-3">
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <div class="card h-100">
+                            <img src="img/SOLARLANTERN.jpg" class="card-img-top" alt="Solar lantern">
+                            <div class="card-body">
+                                <h5 class="card-title">Solar Lantern</h5>
+                                <p class="card-text small">Portable solar light for dark areas.</p>
+                                <p class="fw-bold">€15.00</p>
+                                <button class="btn btn-primary btn-sm" onclick="addtocart('Solar Lantern', 11)">Add to cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <div class="card h-100">
+                            <img src="img/WATERFILTERBOTTLE.jpg" class="card-img-top" alt="Water filter bottle">
+                            <div class="card-body">
+                                <h5 class="card-title">Water Filter Bottle</h5>
+                                <p class="card-text small">Clean drinking water on the move.</p>
+                                <p class="fw-bold">€10.00</p>
+                                <button class="btn btn-primary btn-sm" onclick="addtocart('Water Filter Bottle', 18)">Add to cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <div class="card h-100">
+                            <img src="img/INTERNETACCESSVOUCHER.png" class="card-img-top" alt="Internet access voucher">
+                            <div class="card-body">
+                                <h5 class="card-title">Internet Access Voucher</h5>
+                                <p class="card-text small">Short-term internet for school or work.</p>
+                                <p class="fw-bold">€4.00</p>
+                                <button class="btn btn-primary btn-sm" onclick="addtocart('Internet Access Voucher', 4)">Add to cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <div class="card h-100">
+                            <img src="img/E-BOOK.jpg" class="card-img-top" alt="E-book">
+                            <div class="card-body">
+                                <h5 class="card-title">E-book</h5>
+                                <p class="card-text small">Digital reading material.</p>
+                                <p class="fw-bold">€16.00</p>
+                                <button class="btn btn-primary btn-sm" onclick="addtocart('E-book', 6)">Add to cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- navigation button for going to my step 2 -->
+            <div class="mt-4 text-center">
+                <button class="btn btn-success btn-lg" onclick="gotocartstep()">Go to Step 2: Review Cart</button>
+            </div>
+
+            <!-- about us section which i only want to appear in my step1  -->
+            <div id="aboutus">
+                <div class="mt-5 pt-5 border-top">
+                    <div class="text-center mb-5">
+                        <h2>About Us</h2>
+                    </div>
+                    <div class="row align-items-center">
+                        <div class="col-md-6 mb-4 mb-md-0">
+                            <p>IMC Krems Charity is a student-led initiative dedicated to helping families and individuals in need through donation packages. Our mission is to provide essential items including food, hygiene products, shelter care, toys, and electronics to those who need them most.</p>
+                            <p>We work with local communities and organizations to ensure that every donation reaches those who need assistance the most. Your contributions make a real difference in people's lives.</p>
+                        </div>
+                        <div class="col-md-6">
+                            <img src="img/ABOUTUSIMC.png" class="img-fluid" alt="About Us">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- how donations help section also only shown in my step1 -->
+            <div id="donationshelp">
+                <div class="mt-5 pt-5 border-top" style="background-color: #f8f9fa; padding: 30px; border-radius: 12px;">
+                    <div class="text-center mb-5">
+                        <h2>How Donations Help</h2>
+                    </div>
+                    <div class="row align-items-center">
+                        <div class="col-md-6 mb-4 mb-md-0">
+                            <img src="img/HOWHELPS.jpg" class="img-fluid" alt="How Donations Help">
+                        </div>
+                        <div class="col-md-6">
+                            <p>Your donations directly impact the lives of families and individuals facing difficult circumstances. Each donation package we provide includes carefully selected items that address essential needs.</p>
+                            <p>Food packs ensure families have access to nutritious meals. Hygiene and health products promote well-being and prevent illness. Home and shelter care items provide comfort and safety. Toys and leisure items bring joy and normalcy to children's lives. Electronics and access items help people stay connected and informed.</p>
+                            <p>By choosing to donate, you are making a meaningful contribution to someone's quality of life and helping them during challenging times.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- step 2: review cart -->
+        <!-- 1.the section id is for java to hide or show it my setp2 and my class will only show it when js run it
+         2.responsive, nothing to add here
+         3.a basic table that will show produtcs 
+         4. a summary of the cart with the mt-4, mb-4, etc...
+         5. some buttons to go back or to continue 
+
+         -->
+        <section id="step2" class="mb-5 d-none">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th>Subtotal</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cartbody">
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="mt-4 mb-4 p-4 bg-light rounded">
+                <p class="mb-2">Items in cart: <strong><span id="cartitemscount">0</span></strong></p>
+                <p class="mb-2">Total: <strong>€<span id="carttotal">0.00</span></strong></p>
+                <p class="mb-2">Discount: <strong>€<span id="cartdiscount">0.00</span></strong></p>
+                <p class="mb-0"><strong class="text-primary" style="font-size: 1.2rem;">Final Total: €<span id="cartfinal">0.00</span></strong></p>
+            </div>
+
+            <div class="mt-4">
+                <button class="btn btn-secondary" onclick="showstep(1)">Back</button>
+                <button class="btn btn-primary" onclick="gotocheckoutstep()">Continue to checkout</button>
+            </div>
+        </section>
+
+        <!-- step 3: buyer details -->
+        <!-- here i have more thing but ill go over it in a more general way
+         so i have separated all the info asked by the webpage with label, the input and also another div isnide
+         i added a message in case some information is missing
+         and again i added the option to go back or forward -->
+        <section id="step3" class="mb-5 d-none">
+            <h2 class="mb-3">Step 3: Enter your details</h2>
+
+            <form id="checkout-form" novalidate onsubmit="handlecheckout(event)">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="buyername" class="form-label">Full name</label>
+                        <input type="text" class="form-control" id="buyername">
+                        <div class="invalid-feedback"></div>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label for="buyeremail" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="buyeremail">
+                        <div class="invalid-feedback"></div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="buyeraddress" class="form-label">Street and house number</label>
+                    <input type="text" class="form-control" id="buyeraddress">
+                    <div class="invalid-feedback"></div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label for="buyerzip" class="form-label">ZIP code</label>
+                        <input type="text" class="form-control" id="buyerzip">
+                        <div class="invalid-feedback"></div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="buyercity" class="form-label">City</label>
+                        <input type="text" class="form-control" id="buyercity">
+                        <div class="invalid-feedback"></div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="buyercountry" class="form-label">Country</label>
+                        <input type="text" class="form-control" id="buyercountry">
+                        <div class="invalid-feedback"></div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="buyerphone" class="form-label">Phone number</label>
+                    <input type="text" class="form-control" id="buyerphone">
+                    <div class="invalid-feedback"></div>
+                </div>
+
+                <div id="formmessagebox" class="alert alert-danger d-none" role="alert">
+                    Please correct the highlighted fields before continuing.
+                </div>
+
+                <div class="d-flex justify-content-between mt-3">
+                    <button type="button" class="btn btn-secondary" onclick="showstep(2)">
+                        Back to Step 2
+                    </button>
+                    <button type="submit" class="btn btn-primary">
+                        Go to Step 4: Confirm donation
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <!-- step 4: confirmation -->
+        <!-- something very similiar in structure with the other steps with nothing new at all
+         just the button to go to the start in case you have finished the shipping-->
+        <section id="step4" class="mb-5 d-none">
+            <h2 class="mb-4">Step 4: Confirmation</h2>
+            
+            <div class="alert alert-success" role="alert">
+                Your donation has been successfully registered! Thank you for your generosity.
+            </div>
+
+            <h4 class="mt-4 mb-3">Order Summary</h4>
+            <ul class="list-group mb-4" id="summarylist">
+            </ul>
+
+            <div class="mt-4 mb-4 p-4 bg-light rounded">
+                <p class="mb-2">Total: <strong>€<span id="summarytotalgross">0.00</span></strong></p>
+                <p class="mb-2">Discount: <strong>€<span id="summarytotaldiscount">0.00</span></strong></p>
+                <p class="mb-0"><strong class="text-primary" style="font-size: 1.2rem;">Final Total: €<span id="summarytotalfinal">0.00</span></strong></p>
+            </div>
+
+            <h4 class="mt-4 mb-3">Buyer Information</h4>
+            <div id="summarybuyer" class="mb-4">
+            </div>
+
+            <button class="btn btn-primary" onclick="resetprocess()">Start new donation</button>
+        </section>
+    </div>
+
+    <!-- footer -->
+    <footer class="bg-dark text-white text-center py-3">
+        <div class="container">
+            <p class="mb-0 small">Student project for IMC Krems -- Pablo´s Project</p>
+        </div>
+    </footer>
+
+    <!-- here i added a bootstrap 5 js bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- and here i put my custom js to access -->
+    <script src="js/scripts.js"></script>
+</body>
+</html>

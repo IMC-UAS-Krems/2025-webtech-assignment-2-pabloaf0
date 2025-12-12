@@ -1,0 +1,425 @@
+/* body */
+body {
+    background-color: whitesmoke;
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* navbar */
+.navbar {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 15px 0;
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.4rem;
+    letter-spacing: 0.5px;
+}
+
+.nav-link {
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: red !important;
+}
+
+/* header */
+header {
+    background-color: grey;
+    padding: 80px 0;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-weight: 700;
+    text-shadow: 2px 2px 4px black (0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+
+header .lead {
+    font-size: 1.2rem;
+    opacity: 0.95;
+}
+
+/* the message box */
+#messagebox {
+    border-radius: 8px;
+    margin: 20px auto;
+    max-width: 1200px;
+    box-shadow: 0 2px 8px black (0, 0, 0, 0.1);
+}
+
+/* step sections */
+section[id^="step"] {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px black (0, 0, 0, 0.08);
+    margin-bottom: 40px;
+    transition: box-shadow 0.3s ease;
+}
+
+section[id^="step"]:hover {
+    box-shadow: 0 6px 25px black (0, 0, 0, 0.12);
+}
+
+section[id^="step"] h2 {
+    color: grey;
+    font-weight: 700;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 3px solid  blue;
+}
+
+section[id^="step"] h3 {
+    color: grey;
+    font-weight: 600;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+/* the product card  */
+.card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 3px 15px black (0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    overflow: hidden;
+    height: 100%;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px navy (0, 0, 0, 0.15);
+}
+
+.card-img-top {
+    object-fit: cover;
+    height: 220px;
+    transition: transform 0.3s ease;
+}
+
+.card:hover .card-img-top {
+    transform: scale(1.05);
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-title {
+    font-weight: 600;
+    color: black;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    color: grey;
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+}
+
+.card-text strong {
+    color: violet;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+/* buttons (bsic) */
+.btn {
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.btn-primary {
+    background-color: blue;
+    box-shadow: 0 3px 10px navy (13, 110, 253, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px navy (13, 110, 253, 0.4);
+    background-color: blue;
+}
+
+.btn-secondary {
+    background-color: grey;
+    box-shadow: 0 3px 10px black(108, 117, 125, 0.3);
+}
+
+.btn-secondary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px greenyellow (108, 117, 125, 0.4);
+    background-color: grey;
+}
+
+.btn-danger {
+    background-color: pink;
+    box-shadow: 0 3px 10px red (220, 53, 69, 0.3);
+}
+
+.btn-danger:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px violet (220, 53, 69, 0.4);
+    background-color: red;
+}
+
+.btn-success {
+    background-color: green;
+    box-shadow: 0 3px 10px navy (40, 167, 69, 0.3);
+}
+
+.btn-success:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px darkgreen (40, 167, 69, 0.4);
+    background-color: green;
+}
+
+/* badge */
+.badge {
+    padding: 10px 18px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 20px;
+    box-shadow: 0 2px 8px black (0, 0, 0, 0.1);
+}
+
+/* table */
+.table {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.table thead {
+    background-color: blue;
+    color: greenyellow (255, 255, 255);
+}
+
+.table thead th {
+    font-weight: 600;
+    padding: 15px;
+    border: none;
+}
+
+.table tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+.table tbody tr:hover {
+    background-color: black;
+    transform: scale(1.01);
+}
+
+.table tbody td {
+    padding: 15px;
+    vertical-align: middle;
+}
+
+/* form */
+.form-label {
+    font-weight: 600;
+    color: grey;
+    margin-bottom: 8px;
+}
+
+.form-control {
+    border-radius: 8px;
+    border: 2px solid black;
+    padding: 12px 15px;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: lightblue;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.form-control.is-invalid {
+    border-color: pink ;
+}
+
+.form-control.is-invalid:focus {
+    box-shadow: 0 0 0 3px darkviolet (220, 53, 69, 0.1);
+}
+
+.invalid-feedback {
+    font-size: 0.875rem;
+    color: red;
+    margin-top: 5px;
+    display: block;
+    width: 100%;
+}
+
+/* alert box message boxes */
+.alert {
+    border-radius: 8px;
+    border: none;
+    padding: 15px 20px;
+    font-weight: 500;
+}
+
+.alert-success {
+    background-color: whitesmoke;
+    color: darkgreen;
+}
+
+.alert-danger {
+    background-color: beige;
+    color: red;
+}
+
+.alert-warning {
+    background-color: yellow;
+    color: gold;
+}
+
+.alert-info {
+    background-color: lightskyblue;
+    color: darkolivegreen;
+}
+
+/* list group */
+.list-group-item {
+    border-radius: 8px !important;
+    margin-bottom: 8px;
+    border: 1px solid white;
+    transition: all 0.2s ease;
+}
+
+.list-group-item:hover {
+    background-color: whitesmoke;
+    transform: translateX(5px);
+}
+
+/* footer */
+footer {
+    background-color: navy;
+    color: white;
+    font-size: 14px;
+    text-align: center;
+    padding: 30px 0;
+    margin-top: 60px;
+    box-shadow: 0 -2px 10px navy (0, 0, 0, 0.1);
+}
+
+/* about us and how donations help */
+#aboutus, #donationshelp {
+    padding: 60px ;
+    margin: 40px ;
+}
+
+#aboutus h2, #donationshelp h2 {
+    font-weight: 700;
+    color: darkgrey;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 3px solid lightblue;
+}
+
+#aboutus p, #donationshelp p {
+    color: grey;
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+#aboutus img, #donationshelp img {
+    border-radius: 12px;
+    box-shadow: 0 4px 20px black (0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+#aboutus img:hover, #donationshelp img:hover {
+    transform: scale(1.0);
+}
+
+/* summary section */
+#summarybuyer {
+    background-color: white;
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+#summarybuyer p {
+    margin-bottom: 10px;
+    color: grey;
+}
+
+#summarybuyer strong {
+    color: darkgrey;
+    font-weight: 600;
+}
+
+/* totals section */
+.bg-light.rounded {
+    border: 2px solid white;
+    box-shadow: 0 2px 8px black (0, 0, 0, 0.05);
+}
+
+/* step 1 badges container */
+#step1 .mb-4 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}
+
+/* section descriptions */
+section[id^="step"] p {
+    color: grey;
+    font-size: 1.0 rem;
+    line-height: 1.7;
+}
+
+/* cross-platform compatibility */
+* {
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* media query for small screens */
+@media (max-width: 576px) {
+    section[id^="step"] {
+        padding: 20px;
+    }
+    
+    header {
+        padding: 50px;
+    }
+    
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    header .lead {
+        font-size: 1rem;
+    }
+    
+    .card-img-top {
+        height: 180px;
+    }
+}
+
+/* this is just something "special" i learnt in my uni that makes and improvement for mac */
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    body {
+        font-smooth: always;
+    }
+}
+
